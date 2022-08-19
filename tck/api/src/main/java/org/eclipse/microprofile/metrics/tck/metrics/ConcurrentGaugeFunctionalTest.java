@@ -38,7 +38,6 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,7 +55,7 @@ public class ConcurrentGaugeFunctionalTest {
                 .addClass(BeanWithControlledInvocation.class)
                 .addClass(ControlledInvocation.class)
                 .addClass(TimeUtil.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsManifestResource("beans.xml", "beans.xml");
     }
 
     @Inject

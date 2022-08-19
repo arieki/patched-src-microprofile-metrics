@@ -36,7 +36,6 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Before;
 import org.junit.Test;
@@ -59,7 +58,7 @@ public class SimplyTimedConstructorBeanTest {
                 // Test bean
                 .addClass(SimplyTimedConstructorBean.class)
                 // Bean archive deployment descriptor
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
     }
 
     @Inject
@@ -71,7 +70,7 @@ public class SimplyTimedConstructorBeanTest {
     // This test case becomes irrelevant as the registry already contains SimpleTimers from other test cases.
     /*
      * @Test
-     * 
+     *
      * @InSequence(1) public void SimpleTimerConstructorNotCalledYet() {
      * assertThat("SimpleTimer is not registered correctly", registry.getSimpleTimers().keySet(), is(empty())); }
      */

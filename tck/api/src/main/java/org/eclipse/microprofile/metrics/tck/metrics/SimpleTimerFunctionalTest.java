@@ -37,7 +37,6 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -53,7 +52,7 @@ public class SimpleTimerFunctionalTest {
                 .addClass(SimpleTimerFunctionalTest.class)
                 .addClass(SimpleTimerFunctionalBean.class)
                 .addClass(TimeUtil.class)
-                .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsManifestResource("beans.xml", "beans.xml");
     }
 
     @Inject

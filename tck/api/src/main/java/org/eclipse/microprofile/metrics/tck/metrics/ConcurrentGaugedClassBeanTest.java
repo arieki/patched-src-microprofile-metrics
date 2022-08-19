@@ -58,7 +58,6 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Before;
 import org.junit.Test;
@@ -86,7 +85,7 @@ public class ConcurrentGaugedClassBeanTest {
                 // Test bean
                 .addClasses(ConcurrentGaugedClassBean.class, MetricsUtil.class)
                 // Bean archive deployment descriptor
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
     }
 
     @Inject

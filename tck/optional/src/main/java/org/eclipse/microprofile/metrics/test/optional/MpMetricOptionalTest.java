@@ -39,7 +39,6 @@ import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import org.jboss.arquillian.test.api.ArquillianResource;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -176,7 +175,7 @@ public class MpMetricOptionalTest {
         WebArchive jar = ShrinkWrap.create(WebArchive.class, "optionalTCK.war")
                 .addPackage(MetricAppBeanOptional.class.getPackage())
                 .addClasses(MetricsRESTActivator.class, MetricAppBeanOptional.class, NameObject.class)
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
 
         System.out.println(jar.toString(true));
         return jar;

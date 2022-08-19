@@ -60,7 +60,6 @@ import org.jboss.arquillian.container.test.api.RunAsClient;
 import org.jboss.arquillian.junit.Arquillian;
 import org.jboss.arquillian.junit.InSequence;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
-import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
 import org.junit.Assert;
 import org.junit.Assume;
@@ -146,7 +145,7 @@ public class MpMetricTest {
     @Deployment
     public static WebArchive createDeployment() {
         WebArchive jar = ShrinkWrap.create(WebArchive.class).addClass(MetricAppBean.class)
-                .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
+                .addAsWebInfResource("beans.xml", "beans.xml");
 
         System.out.println(jar.toString(true));
         return jar;
@@ -1290,7 +1289,7 @@ public class MpMetricTest {
      *
      * Note: The JSON parser only returns float for earlier versions of restassured, so we need to return a float
      * Matcher.
-     * 
+     *
      * @param operand
      * @return
      */
